@@ -1,6 +1,5 @@
 ﻿using System;
 using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
-using Raven.Imports.Newtonsoft.Json;
 
 namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
 {
@@ -11,7 +10,6 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
         public int AnoModelo { get; }
         public int AnoFabricacao { get; }
 
-        [JsonConstructor]
         private DetalheDeFabricacao(string marca, string modelo,
             int anoFabricacao, int anoModelo)
         {
@@ -48,7 +46,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
         {
             unchecked
             {
-                int hashCode = Marca.GetHashCode();
+                var hashCode = Marca.GetHashCode();
                 hashCode = (hashCode * 397) ^ Modelo.GetHashCode();
                 hashCode = (hashCode * 397) ^ AnoModelo.GetHashCode();
                 hashCode = (hashCode * 397) ^ AnoFabricacao.GetHashCode();

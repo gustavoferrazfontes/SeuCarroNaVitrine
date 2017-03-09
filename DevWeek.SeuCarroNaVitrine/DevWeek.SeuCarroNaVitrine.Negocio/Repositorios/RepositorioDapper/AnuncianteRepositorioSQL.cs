@@ -1,10 +1,11 @@
 ﻿using Dapper;
 using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
+using DevWeek.SeuCarroNaVitrine.Negocio.DominioPuro.GerenciamentoDeAnunciante;
 using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado;
 using System;
 using System.Data.SqlClient;
 
-namespace DevWeek.SeuCarroNaVitrine.Negocio.GerenciamentoDeAnunciante
+namespace DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioDapper
 {
     public sealed class AnuncianteRepositorioSQL
     {
@@ -19,26 +20,26 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.GerenciamentoDeAnunciante
         {
             using (SqlConnection cn = new SqlConnection(StringDeConexao))
             {
-                string select =
-@"
-    SELECT [AnuncianteId]
-      ,[Nome]
-      ,[Sobrenome]
-      ,[Logradouro]
-      ,[Bairro]
-      ,[Cidade]
-      ,[Estado]
-      ,[Cep]
-      ,[Email]
-      ,[DDDTelefonePrincipal]
-      ,[TelefonePrincipal]
-      ,[DDDTelefoneComercial]
-      ,[TelefoneComercial]
-      ,[DDDCelular]
-      ,[Celular]
-    FROM [dbo].[Anunciante]
-    WHERE AnuncianteId = @id
-";
+                var select =
+                        @"
+                            SELECT [AnuncianteId]
+                              ,[Nome]
+                              ,[Sobrenome]
+                              ,[Logradouro]
+                              ,[Bairro]
+                              ,[Cidade]
+                              ,[Estado]
+                              ,[Cep]
+                              ,[Email]
+                              ,[DDDTelefonePrincipal]
+                              ,[TelefonePrincipal]
+                              ,[DDDTelefoneComercial]
+                              ,[TelefoneComercial]
+                              ,[DDDCelular]
+                              ,[Celular]
+                            FROM [dbo].[Anunciante]
+                            WHERE AnuncianteId = @id
+                        ";
 
                 var result = cn.QueryFirstOrDefault(select, new { id = id.ToString() });
 
@@ -68,15 +69,15 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.GerenciamentoDeAnunciante
         {
             using (SqlConnection cn = new SqlConnection(StringDeConexao))
             {
-                string insert =
-@"
-    INSERT INTO ANUNCIANTE([AnuncianteId], [Nome],[Sobrenome],[Logradouro],[Bairro],[Cidade],[Estado]
-        ,[Cep],[Email],[DDDTelefonePrincipal],[TelefonePrincipal],[DDDTelefoneComercial]
-        ,[TelefoneComercial],[DDDCelular],[Celular])
-    VALUES(@anuncianteId, @nome, @sobreNome, @logradouro, @bairro, @cidade, @estado, @cep, @email,
-           @dddTelefonePrincipal, @telefonePrincipal, @dddTelefoneComercial,
-           @telefoneComercial, @dddCelular, @celular)
-";
+                var insert =
+                        @"
+                            INSERT INTO ANUNCIANTE([AnuncianteId], [Nome],[Sobrenome],[Logradouro],[Bairro],[Cidade],[Estado]
+                                ,[Cep],[Email],[DDDTelefonePrincipal],[TelefonePrincipal],[DDDTelefoneComercial]
+                                ,[TelefoneComercial],[DDDCelular],[Celular])
+                            VALUES(@anuncianteId, @nome, @sobreNome, @logradouro, @bairro, @cidade, @estado, @cep, @email,
+                                   @dddTelefonePrincipal, @telefonePrincipal, @dddTelefoneComercial,
+                                   @telefoneComercial, @dddCelular, @celular)
+                        ";
 
                 var parametros = new
                 {

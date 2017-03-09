@@ -1,7 +1,6 @@
 ﻿using System;
 using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
 using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado.Enums;
-using Raven.Imports.Newtonsoft.Json;
 
 namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
 {
@@ -16,7 +15,6 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
         public TipoDeCombustivel Combustivel { get; }
         public decimal Preco { get; }
 
-        [JsonConstructor]
         private DetalheDoVeiculo(string placa, int kilometragem,
             TipoDoCambio cambio, TipoDaCarroceria carroceria, Cor cor,
             TipoDeCombustivel combustivel, int portas, decimal preco)
@@ -65,7 +63,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
         {
             unchecked
             {
-                int hashCode = Placa.GetHashCode();
+                var hashCode = Placa.GetHashCode();
                 hashCode = (hashCode * 397) ^ Kilometragem.GetHashCode();
                 hashCode = (hashCode * 397) ^ Portas.GetHashCode();
                 hashCode = (hashCode * 397) ^ Cambio.GetHashCode();

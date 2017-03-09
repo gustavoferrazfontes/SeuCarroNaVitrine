@@ -1,5 +1,4 @@
 ﻿using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
-using Raven.Imports.Newtonsoft.Json;
 using System;
 
 namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
@@ -9,7 +8,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
         public DateTime Inicial { get; }
         public DateTime Final { get; }
 
-        [JsonConstructor]
+
         private Periodo(DateTime inicial, DateTime final)
         {
             if (inicial == DateTime.MinValue)
@@ -40,7 +39,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
         {
             unchecked
             {
-                int hashCode = Inicial.GetHashCode();
+                var hashCode = Inicial.GetHashCode();
                 hashCode = (hashCode * 397) ^ Final.GetHashCode();
 
                 return hashCode;

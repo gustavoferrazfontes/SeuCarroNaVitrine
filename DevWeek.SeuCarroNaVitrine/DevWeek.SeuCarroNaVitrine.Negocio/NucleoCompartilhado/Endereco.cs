@@ -1,5 +1,4 @@
 ﻿using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
-using Raven.Imports.Newtonsoft.Json;
 using System;
 
 namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
@@ -12,7 +11,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
         public string Estado { get; }
         public int Cep { get; }
 
-        [JsonConstructor]
+        
         private Endereco(string logradouro, string bairro, string cidade, string estado, int cep)
         {
             if (cep < 01000000 || cep > 99999999)
@@ -56,7 +55,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
         {
             unchecked
             {
-                int hashCode = Logradouro.GetHashCode();
+                var hashCode = Logradouro.GetHashCode();
                 hashCode = (hashCode * 397) ^ Bairro.GetHashCode();
                 hashCode = (hashCode * 397) ^ Cidade.GetHashCode();
                 hashCode = (hashCode * 397) ^ Estado.GetHashCode();

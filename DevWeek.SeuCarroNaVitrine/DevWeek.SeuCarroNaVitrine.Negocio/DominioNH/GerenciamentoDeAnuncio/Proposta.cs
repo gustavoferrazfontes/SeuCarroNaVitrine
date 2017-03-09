@@ -2,7 +2,7 @@
 using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado;
 using System;
 
-namespace DevWeek.SeuCarroNaVitrine.Negocio.GerenciamentoDeAnuncio
+namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioNH.GerenciamentoDeAnunciante
 {
     public class Proposta : Entidade
     {

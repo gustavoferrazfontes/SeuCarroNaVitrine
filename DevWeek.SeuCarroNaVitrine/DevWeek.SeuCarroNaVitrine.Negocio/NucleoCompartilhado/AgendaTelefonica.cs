@@ -1,5 +1,4 @@
 ﻿using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
-using Raven.Imports.Newtonsoft.Json;
 using System;
 
 namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
@@ -10,7 +9,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
         public Telefone TelefoneComercial { get; }
         public Telefone Celular { get; }
 
-        [JsonConstructor]
+
         private AgendaTelefonica(Telefone telefonePrincipal,
             Telefone telefoneComercial, Telefone celular)
         {

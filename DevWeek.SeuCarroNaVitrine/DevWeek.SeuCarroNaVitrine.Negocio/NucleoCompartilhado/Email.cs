@@ -1,5 +1,4 @@
 ﻿using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
-using Raven.Imports.Newtonsoft.Json;
 using System;
 using System.Text.RegularExpressions;
 
@@ -9,7 +8,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
     {
         public string Valor { get; }
 
-        [JsonConstructor]
+
         private Email(string valor)
         {
             if (!(ValidarEnderecoDeEmail(valor)))
@@ -33,10 +32,10 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
             return Valor.GetHashCode();
         }
 
-        private bool ValidarEnderecoDeEmail(string emailAddress)
+        private static bool ValidarEnderecoDeEmail(string emailAddress)
         {
-            string regexPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$";
-            Match matches = Regex.Match(emailAddress, regexPattern);
+            var regexPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$";
+            var matches = Regex.Match(emailAddress, regexPattern);
             return matches.Success;
         }
     }

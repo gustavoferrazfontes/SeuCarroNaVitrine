@@ -1,5 +1,4 @@
 ﻿using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
-using Raven.Imports.Newtonsoft.Json;
 using System;
 
 namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
@@ -9,7 +8,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
         public int DDD { get; }
         public string Numero { get; }
 
-        [JsonConstructor]
+        
         private Telefone(int ddd, string numero)
         {
             if (ddd < 11 || ddd > 99)
@@ -40,7 +39,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
         {
             unchecked
             {
-                int hashCode = Numero.GetHashCode();
+                var hashCode = Numero.GetHashCode();
                 hashCode = (hashCode * 397) ^ DDD.GetHashCode();
 
                 return hashCode;

@@ -2,7 +2,7 @@
 using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado;
 using System;
 
-namespace DevWeek.SeuCarroNaVitrine.Negocio.GerenciamentoDeAnunciante
+namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioEF.GerenciamentoDeAnunciante
 {
     public class Anunciante : Agregado
     {

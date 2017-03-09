@@ -38,16 +38,17 @@
       <HintPath>..\packages\DapperExtensions.1.5.0\lib\net45\DapperExtensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Raven.Abstractions, Version=3.5.1.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
-      <HintPath>..\packages\RavenDB.Client.3.5.1\lib\net45\Raven.Abstractions.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Raven.Client.Lightweight, Version=3.5.1.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
-      <HintPath>..\packages\RavenDB.Client.3.5.1\lib\net45\Raven.Client.Lightweight.dll</HintPath>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -57,24 +58,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GerenciamentoDeAnunciante\RepositorioRaven\AnuncianteRepositorioRavenDB.cs" />
-    <Compile Include="Utils\DocumentStoreHolder.cs" />
-    <Compile Include="GerenciamentoDeAnunciante\RepositorioRaven\AnuncianteIdJsonConverter.cs" />
-    <Compile Include="GerenciamentoDeAnunciante\RepositorioRaven\AnuncianteIdConverter.cs" />
-    <Compile Include="GerenciamentoDeAnunciante\RepositorioSQL\AnuncianteRepositorioSQL.cs" />
-    <Compile Include="GerenciamentoDeAnuncio\Anuncio.cs" />
-    <Compile Include="GerenciamentoDeAnuncio\Proposta.cs" />
+    <Compile Include="DominioEF\GerenciamentoDeAnunciante\Anunciante.cs" />
+    <Compile Include="DominioEF\GerenciamentoDeAnuncio\Anuncio.cs" />
+    <Compile Include="DominioEF\GerenciamentoDeAnuncio\Proposta.cs" />
+    <Compile Include="DominioEF\GerenciamentoDeAnuncio\Veiculo.cs" />
+    <Compile Include="DominioNH\GerenciamentoDeAnunciante\Anunciante.cs" />
+    <Compile Include="DominioNH\GerenciamentoDeAnuncio\Anuncio.cs" />
+    <Compile Include="DominioNH\GerenciamentoDeAnuncio\Proposta.cs" />
+    <Compile Include="DominioNH\GerenciamentoDeAnuncio\Veiculo.cs" />
+    <Compile Include="DominioPuro\GerenciamentoDeAnunciante\Anunciante.cs" />
+    <Compile Include="DominioPuro\GerenciamentoDeAnuncio\Anuncio.cs" />
+    <Compile Include="DominioPuro\GerenciamentoDeAnuncio\Proposta.cs" />
+    <Compile Include="DominioPuro\GerenciamentoDeAnuncio\Veiculo.cs" />
     <Compile Include="Comum\Agregado.cs" />
     <Compile Include="Comum\Entidade.cs" />
     <Compile Include="Comum\Enumeration.cs" />
     <Compile Include="Comum\ObjetoDeValor.cs" />
-    <Compile Include="GerenciamentoDeAnuncio\RepositorioRaven\AnuncioIdConverter.cs" />
-    <Compile Include="GerenciamentoDeAnuncio\RepositorioRaven\AnuncioIdJsonConverter.cs" />
-    <Compile Include="GerenciamentoDeAnuncio\RepositorioRaven\AnuncioRepositorioRavenDB.cs" />
-    <Compile Include="GerenciamentoDeAnuncio\RepositorioSQL\AnuncioRepositorioSQL.cs" />
     <Compile Include="NucleoCompartilhado\Enums\StatusPublicacao.cs" />
-    <Compile Include="GerenciamentoDeAnunciante\Anunciante.cs" />
-    <Compile Include="GerenciamentoDeAnuncio\Veiculo.cs" />
     <Compile Include="NucleoCompartilhado\AgendaTelefonica.cs" />
     <Compile Include="NucleoCompartilhado\DetalheDoVeiculo.cs" />
     <Compile Include="NucleoCompartilhado\Email.cs" />
@@ -90,10 +90,20 @@
     <Compile Include="NucleoCompartilhado\Periodo.cs" />
     <Compile Include="NucleoCompartilhado\Telefone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorios\RepositorioDapper\AnuncianteRepositorioSQL.cs" />
+    <Compile Include="Repositorios\RepositorioDapper\AnuncioRepositorioSQL.cs" />
+    <Compile Include="Repositorios\RepositorioEF\AnuncianteRepositorio.cs" />
+    <Compile Include="Repositorios\RepositorioEF\AnuncioRepositorio.cs" />
+    <Compile Include="Repositorios\RepositorioEF\Map\AgendaTelefonicaMap.cs" />
+    <Compile Include="Repositorios\RepositorioEF\Map\AnuncianteMap.cs" />
+    <Compile Include="Repositorios\RepositorioEF\Map\EnderecoMap.cs" />
+    <Compile Include="Repositorios\RepositorioEF\Map\NomeMap.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

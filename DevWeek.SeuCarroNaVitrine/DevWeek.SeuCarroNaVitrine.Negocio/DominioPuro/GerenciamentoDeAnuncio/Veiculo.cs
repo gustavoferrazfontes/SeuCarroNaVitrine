@@ -3,7 +3,7 @@ using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado;
 using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado.Enums;
 using System;
 
-namespace DevWeek.SeuCarroNaVitrine.Negocio.GerenciamentoDeAnuncio
+namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioPuro.GerenciamentoDeAnunciante
 {
     public class Veiculo : Entidade
     {

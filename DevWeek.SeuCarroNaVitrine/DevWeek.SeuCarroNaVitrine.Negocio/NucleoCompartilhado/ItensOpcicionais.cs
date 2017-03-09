@@ -1,5 +1,4 @@
 ﻿using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
-using Raven.Imports.Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
@@ -10,7 +9,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
 
         public string Itens { get { return UnificarItens(_opcionais); } }
 
-        [JsonConstructor]
+
         private ItensOpcicionais(string itens)
         {
             _opcionais = new List<string>();

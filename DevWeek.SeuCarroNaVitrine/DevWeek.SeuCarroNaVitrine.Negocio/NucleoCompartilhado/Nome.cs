@@ -1,6 +1,5 @@
 ﻿using System;
 using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
-using Raven.Imports.Newtonsoft.Json;
 
 namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
 {
@@ -9,7 +8,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
         public string PrimeiroNome { get; }
         public string Sobrenome { get; }
 
-        [JsonConstructor]
+        
         private Nome(string primeiroNome, string sobreNome)
         {
             if (string.IsNullOrWhiteSpace(primeiroNome))

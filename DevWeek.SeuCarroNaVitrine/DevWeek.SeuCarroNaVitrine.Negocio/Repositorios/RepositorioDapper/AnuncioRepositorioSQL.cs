@@ -1,12 +1,12 @@
 ﻿using Dapper;
 using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
-using DevWeek.SeuCarroNaVitrine.Negocio.GerenciamentoDeAnuncio;
+using DevWeek.SeuCarroNaVitrine.Negocio.DominioPuro.GerenciamentoDeAnunciante;
 using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado;
 using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado.Enums;
 using System;
 using System.Data.SqlClient;
 
-namespace DevWeek.SeuCarroNaVitrine.Negocio.GerenciamentoDeAnunciante
+namespace DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioDapper
 {
     public sealed class AnuncioRepositorioSQL
     {
@@ -21,35 +21,35 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.GerenciamentoDeAnunciante
         {
             using (SqlConnection cn = new SqlConnection(StringDeConexao))
             {
-                string select =
-@"
-    SELECT [AnuncioId]
-      ,[AnuncianteId]
-      ,[DataDePublicacao]
-      ,[PeriodoInicio]
-      ,[PeriodoFinal]
-    FROM [SeuCarroNaVitrine].[dbo].[Anuncio]
-    WHERE AnuncioId = @id
+                var select =
+                            @"
+                                SELECT [AnuncioId]
+                                  ,[AnuncianteId]
+                                  ,[DataDePublicacao]
+                                  ,[PeriodoInicio]
+                                  ,[PeriodoFinal]
+                                FROM [SeuCarroNaVitrine].[dbo].[Anuncio]
+                                WHERE AnuncioId = @id
 
-    SELECT [VeiculoId]
-        ,[AnuncioId]
-        ,[Marca]
-        ,[Modelo]
-        ,[AnoFabricacao]
-        ,[AnoModelo]
-        ,[Placa]
-        ,[Kilometragem]
-        ,[Portas]
-        ,[Cambio]
-        ,[Carroceria]
-        ,[Cor]
-        ,[Combustivel]
-        ,[Preco]
-        ,[StatusDePublicacao]
-        ,[Opcionais]
-    FROM [SeuCarroNaVitrine].[dbo].[Veiculo]
-    WHERE AnuncioId = @id
-";
+                                SELECT [VeiculoId]
+                                    ,[AnuncioId]
+                                    ,[Marca]
+                                    ,[Modelo]
+                                    ,[AnoFabricacao]
+                                    ,[AnoModelo]
+                                    ,[Placa]
+                                    ,[Kilometragem]
+                                    ,[Portas]
+                                    ,[Cambio]
+                                    ,[Carroceria]
+                                    ,[Cor]
+                                    ,[Combustivel]
+                                    ,[Preco]
+                                    ,[StatusDePublicacao]
+                                    ,[Opcionais]
+                                FROM [SeuCarroNaVitrine].[dbo].[Veiculo]
+                                WHERE AnuncioId = @id
+                            ";
 
                 using (var result = cn.QueryMultiple(select, new { id = id.ToString() }))
                 {
@@ -91,30 +91,30 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.GerenciamentoDeAnunciante
             {
                 cn.Open();
 
-                string insertAnuncio =
-@"
-    INSERT INTO [dbo].[Anuncio]
-           ([AnuncioId] ,[AnuncianteId], [DataDePublicacao]
-           ,[PeriodoInicio], [PeriodoFinal])
-     VALUES
-           (@anuncioId, @anuncianteId, @dataDePublicacao,
-            @periodoInicio, @periodoFinal)
-";
-                
-                string insertVeiculo =
-@"
-    INSERT INTO [dbo].[Veiculo]
-           ([VeiculoId], [AnuncioId], [Marca], [AnoFabricacao]
-           ,[Modelo],[AnoModelo],[Placa],[Kilometragem]
-           ,[Portas],[Cambio],[Carroceria],[Cor]
-           ,[Combustivel],[Preco],[StatusDePublicacao],[Opcionais])
-     VALUES
-           (@veiculoId,@anuncioId,@marca,@anoFabricacao
-           ,@modelo,@anoModelo,@placa,@kilometragem
-           ,@portas,@cambio,@carroceria,@cor
-           ,@combustivel,@preco,@statusDePublicacao
-           ,@opcionais)
-";
+                var insertAnuncio =
+                            @"
+                                INSERT INTO [dbo].[Anuncio]
+                                       ([AnuncioId] ,[AnuncianteId], [DataDePublicacao]
+                                       ,[PeriodoInicio], [PeriodoFinal])
+                                 VALUES
+                                       (@anuncioId, @anuncianteId, @dataDePublicacao,
+                                        @periodoInicio, @periodoFinal)
+                            ";
+
+                var insertVeiculo =
+                            @"
+                                INSERT INTO [dbo].[Veiculo]
+                                       ([VeiculoId], [AnuncioId], [Marca], [AnoFabricacao]
+                                       ,[Modelo],[AnoModelo],[Placa],[Kilometragem]
+                                       ,[Portas],[Cambio],[Carroceria],[Cor]
+                                       ,[Combustivel],[Preco],[StatusDePublicacao],[Opcionais])
+                                 VALUES
+                                       (@veiculoId,@anuncioId,@marca,@anoFabricacao
+                                       ,@modelo,@anoModelo,@placa,@kilometragem
+                                       ,@portas,@cambio,@carroceria,@cor
+                                       ,@combustivel,@preco,@statusDePublicacao
+                                       ,@opcionais)
+                            ";
                 var parametrosAnuncio = new
                 {
                     anuncioId = agregado.Id.ToString(),

@@ -1,5 +1,4 @@
 ﻿using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
-using Raven.Imports.Newtonsoft.Json;
 
 namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado.Enums
 {
@@ -13,7 +12,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado.Enums
         {
         }
 
-        [JsonConstructor]
+        
         private StatusPublicacao(int value, string displayName)
             : base(value, displayName)
         {

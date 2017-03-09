@@ -1,8 +1,8 @@
 ﻿using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
-using DevWeek.SeuCarroNaVitrine.Negocio.GerenciamentoDeAnunciante;
-using DevWeek.SeuCarroNaVitrine.Negocio.GerenciamentoDeAnuncio;
+using DevWeek.SeuCarroNaVitrine.Negocio.DominioPuro.GerenciamentoDeAnunciante;
 using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado;
 using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado.Enums;
+using DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioDapper;
 using System;
 
 namespace DevWeek.SeuCarroNaVitrine.ConsoleApp
@@ -20,8 +20,7 @@ namespace DevWeek.SeuCarroNaVitrine.ConsoleApp
 
         private static void InserirAnuncio()
         {
-            //AnuncioRepositorioSQL repo = new AnuncioRepositorioSQL();
-            AnuncioRepositorioRavenDB repo = new AnuncioRepositorioRavenDB();
+            var repo = new AnuncioRepositorioSQL();
 
             var veiculoId = new Identidade();
             var detalheDeFabricacao = DetalheDeFabricacao.Novo("Ford", "Focus Titanium 2.0", 2015, 2016);
@@ -50,8 +49,8 @@ namespace DevWeek.SeuCarroNaVitrine.ConsoleApp
 
         private static Guid InserirAnunciante()
         {
-            //AnuncianteRepositorioSQL repo = new AnuncianteRepositorioSQL();
-            AnuncianteRepositorioRavenDB repo = new AnuncianteRepositorioRavenDB();
+            var repo = new AnuncianteRepositorioSQL();
+
 
             var nome = Nome.Novo("José Roberto", "Araújo");
             var endereco = Endereco.Novo("Rua do Paraíso", "Saúde", "São Paulo", "SP", 04123010);
