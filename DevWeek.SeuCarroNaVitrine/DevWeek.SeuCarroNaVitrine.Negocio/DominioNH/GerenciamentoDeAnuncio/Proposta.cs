@@ -1,20 +1,19 @@
-﻿using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
-using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado;
+﻿using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado;
 using System;
 
 namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioNH.GerenciamentoDeAnunciante
 {
     public class Proposta : Entidade
     {
-        public Identidade AnuncioId { get; }
-        public Nome Nome { get; }
-        public Email Email { get; }
-        public Telefone Telefone { get; }
-        public DateTime DataDeEnvio { get; }
-        public decimal Valor { get; }
-        public string Mensagem { get; }
+        public virtual Guid AnuncioId { get; }
+        public virtual Nome Nome { get; }
+        public virtual Email Email { get; }
+        public virtual Telefone Telefone { get; }
+        public virtual DateTime DataDeEnvio { get; }
+        public virtual decimal Valor { get; }
+        public virtual string Mensagem { get; }
 
-        public Proposta(Identidade id, Identidade anuncioId, Nome nome, Email email, Telefone telefone,
+        public Proposta(Guid id, Guid anuncioId, Nome nome, Email email, Telefone telefone,
             decimal valor, string mensagem) : base(id)
         {
             if (valor == default(decimal))

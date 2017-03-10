@@ -1,5 +1,4 @@
-﻿using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
-using DevWeek.SeuCarroNaVitrine.Negocio.DominioNH.GerenciamentoDeAnunciante;
+﻿using DevWeek.SeuCarroNaVitrine.Negocio.DominioNH.GerenciamentoDeAnunciante;
 using FluentNHibernate.Mapping;
 
 namespace DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioNH.Map
@@ -8,7 +7,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioNH.Map
     {
         public AnuncianteMap() : base()
         {
-            Id(a => a.Id.Id).Column("AnuncianteId") ;
+            Id(a => a.Id).Column("AnuncianteId") ;
 
             Component(a => a.Nome, nome =>
             {
@@ -45,6 +44,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioNH.Map
                     c.Map(tel => tel.Numero).Column("TelefonePrincipal");
                 });
             });
+
 
             Component(a => a.Email, e =>
             {

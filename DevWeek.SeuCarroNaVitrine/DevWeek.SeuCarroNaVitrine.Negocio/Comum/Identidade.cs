@@ -1,7 +1,4 @@
-﻿using NHibernate.UserTypes;
-using System;
-using NHibernate.SqlTypes;
-using System.Data;
+﻿using System;
 
 namespace DevWeek.SeuCarroNaVitrine.Negocio.Comum
 {
@@ -9,12 +6,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.Comum
     {
         public Guid Id { get; set; }
 
-        public SqlType[] SqlTypes => throw new NotImplementedException();
-
-        public Type ReturnedType => throw new NotImplementedException();
-
-        public bool IsMutable => throw new NotImplementedException();
-
+  
         public Identidade()
         {
             Id = Guid.NewGuid();

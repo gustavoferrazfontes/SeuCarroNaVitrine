@@ -74,6 +74,8 @@
     <Compile Include="DominioEF\GerenciamentoDeAnuncio\Anuncio.cs" />
     <Compile Include="DominioEF\GerenciamentoDeAnuncio\Proposta.cs" />
     <Compile Include="DominioEF\GerenciamentoDeAnuncio\Veiculo.cs" />
+    <Compile Include="DominioNH\Agregado.cs" />
+    <Compile Include="DominioNH\Entidade.cs" />
     <Compile Include="DominioNH\GerenciamentoDeAnunciante\Anunciante.cs" />
     <Compile Include="DominioNH\GerenciamentoDeAnuncio\Anuncio.cs" />
     <Compile Include="DominioNH\GerenciamentoDeAnuncio\Proposta.cs" />

@@ -1,5 +1,4 @@
-﻿using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
-using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado;
+﻿using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado;
 using System;
 
 namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioNH.GerenciamentoDeAnunciante
@@ -11,12 +10,12 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioNH.GerenciamentoDeAnunciante
         public virtual Email Email { get; protected set; }
         public virtual AgendaTelefonica AgendaTelefonica { get; protected set; }
 
-        protected Anunciante() : base(new Identidade())
+        protected Anunciante() : base()
         {
             
         }
 
-        public Anunciante(Identidade id, Nome nome, Endereco endereco, Email email,
+        public Anunciante(Guid id, Nome nome, Endereco endereco, Email email,
             AgendaTelefonica agendaTelefonica) : base(id)
         {
             if (nome == null)

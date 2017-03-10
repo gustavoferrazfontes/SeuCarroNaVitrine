@@ -1,4 +1,4 @@
-﻿using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
+﻿using DevWeek.SeuCarroNaVitrine.Negocio.DominioNH;
 using DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioNH.Map;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
@@ -30,11 +30,10 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioNH
         {
             return Fluently.Configure()
                .Database(MsSqlConfiguration.MsSql2012.ShowSql()
-                           .ConnectionString(@"Server=.\; Database=SeuCarroNaVitrine; Integrated Security=SSPI;"))
+                           .ConnectionString(@"Server=(LocalDb)\MSSQLLocalDB; Database=SeuCarroNaVitrine; Integrated Security=SSPI;"))
                .Mappings(m =>
                {
                    m.FluentMappings.Add<AnuncianteMap>();
-                   m.FluentMappings.Add<IdentidadeMap>();
 
                })
 

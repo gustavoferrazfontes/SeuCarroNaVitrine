@@ -1,5 +1,4 @@
-﻿using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
-using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado;
+﻿using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado;
 using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado.Enums;
 using System;
 
@@ -7,12 +6,12 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioNH.GerenciamentoDeAnunciante
 {
     public class Veiculo : Entidade
     {
-        public DetalheDeFabricacao DetalheDeFabricacao { get; }
-        public ItensOpcicionais Opcionais { get; }
-        public DetalheDoVeiculo Detalhe { get; private set; }
-        public StatusPublicacao StatusDePublicacao { get; } = StatusPublicacao.NaoVistoriado;
+        public virtual DetalheDeFabricacao DetalheDeFabricacao { get; }
+        public virtual ItensOpcicionais Opcionais { get; }
+        public virtual DetalheDoVeiculo Detalhe { get; private set; }
+        public virtual StatusPublicacao StatusDePublicacao { get; } = StatusPublicacao.NaoVistoriado;
 
-        public Veiculo(Identidade id, DetalheDeFabricacao detalheDeFabricacao,
+        public Veiculo(Guid id, DetalheDeFabricacao detalheDeFabricacao,
             ItensOpcicionais opcionais, DetalheDoVeiculo detalhe) : base(id)
         {
             if (detalheDeFabricacao == null)
@@ -26,7 +25,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioNH.GerenciamentoDeAnunciante
             Detalhe = detalhe;
         }
 
-        public void AlterarKilometragem(int novaKilometragem)
+        public virtual void AlterarKilometragem(int novaKilometragem)
         {
             Detalhe = DetalheDoVeiculo.Novo(Detalhe.Placa, novaKilometragem,
                 Detalhe.Cambio, Detalhe.Carroceria, Detalhe.Cor, Detalhe.Combustivel,

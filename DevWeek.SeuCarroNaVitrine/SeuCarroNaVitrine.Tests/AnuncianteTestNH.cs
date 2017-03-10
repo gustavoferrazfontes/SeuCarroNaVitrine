@@ -1,12 +1,8 @@
-﻿using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
-using DevWeek.SeuCarroNaVitrine.Negocio.DominioNH.GerenciamentoDeAnunciante;
+﻿using DevWeek.SeuCarroNaVitrine.Negocio.DominioNH.GerenciamentoDeAnunciante;
 using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado;
 using DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioNH;
+using FluentAssertions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace SeuCarroNaVitrine.Tests
@@ -23,7 +19,7 @@ namespace SeuCarroNaVitrine.Tests
         [Fact()]
         public void PersistirUmNovoAnuncianteTest()
         {
-            var identidade = new Identidade();
+            var identidade = Guid.NewGuid();
             var nome = Nome.Novo("Gustavo", "Fontes");
             var endereco = Endereco.Novo("Av. paulista", "Jardins", "São Paulo", "SP", 012345678);
             var email = Email.Novo("gustavo.fontes@gmail.com");
@@ -38,8 +34,11 @@ namespace SeuCarroNaVitrine.Tests
 
             _repositorio.Salvar(novoAnunciante);
 
+            var anunciante = _repositorio.ObterPor(identidade);
 
-
+            anunciante.Should().NotBeNull();
         }
+
+
     }
 }

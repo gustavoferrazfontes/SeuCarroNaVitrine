@@ -1,4 +1,4 @@
-﻿using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
+﻿
 using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado;
 using System;
 using System.Collections.Generic;
@@ -9,14 +9,14 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioNH.GerenciamentoDeAnunciante
     {
         private List<Proposta> _propostas = new List<Proposta>();
 
-        public Identidade AnuncianteId { get; }
-        public DateTime DataDePublicacao { get; }
-        public Periodo Vigencia { get; }
-        public Veiculo Veiculo { get; }
+        public virtual Guid AnuncianteId { get; }
+        public virtual DateTime DataDePublicacao { get; }
+        public virtual Periodo Vigencia { get; }
+        public virtual Veiculo Veiculo { get; }
 
-        public IReadOnlyList<Proposta> Propostas { get { return _propostas; } }
+        public virtual IReadOnlyList<Proposta> Propostas { get { return _propostas; } }
 
-        public Anuncio(Identidade id, Identidade anuncianteId, Periodo vigencia,
+        public Anuncio(Guid id, Guid anuncianteId, Periodo vigencia,
             Veiculo veiculo) : base(id)
         {
             if (vigencia == null)
@@ -31,7 +31,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioNH.GerenciamentoDeAnunciante
             Veiculo = veiculo;
         }
 
-        public void AdicionarProposta(Proposta proposta)
+        public virtual void AdicionarProposta(Proposta proposta)
         {
             if (!_propostas.Contains(proposta))
                 _propostas.Add(proposta);
