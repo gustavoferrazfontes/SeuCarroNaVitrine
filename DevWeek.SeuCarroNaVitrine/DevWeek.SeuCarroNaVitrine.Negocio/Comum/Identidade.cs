@@ -1,10 +1,19 @@
-﻿using System;
+﻿using NHibernate.UserTypes;
+using System;
+using NHibernate.SqlTypes;
+using System.Data;
 
 namespace DevWeek.SeuCarroNaVitrine.Negocio.Comum
 {
     public sealed class Identidade : ObjetoDeValor<Identidade>
     {
-        public Guid Id { get; }
+        public Guid Id { get; set; }
+
+        public SqlType[] SqlTypes => throw new NotImplementedException();
+
+        public Type ReturnedType => throw new NotImplementedException();
+
+        public bool IsMutable => throw new NotImplementedException();
 
         public Identidade()
         {
@@ -45,5 +54,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.Comum
         {
             return Id.ToString();
         }
+
+     
     }
 }

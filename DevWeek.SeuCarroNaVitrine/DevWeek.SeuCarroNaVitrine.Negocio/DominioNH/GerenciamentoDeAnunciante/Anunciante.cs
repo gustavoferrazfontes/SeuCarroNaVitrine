@@ -6,13 +6,18 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioNH.GerenciamentoDeAnunciante
 {
     public class Anunciante : Agregado
     {
-        public Nome Nome { get; }
-        public Endereco Endereco { get; private set; }
-        public Email Email { get; private set; }
-        public AgendaTelefonica AgendaTelefonica { get; }
-        
+        public virtual Nome Nome { get; protected set; }
+        public virtual Endereco Endereco { get; protected set; }
+        public virtual Email Email { get; protected set; }
+        public virtual AgendaTelefonica AgendaTelefonica { get; protected set; }
+
+        protected Anunciante() : base(new Identidade())
+        {
+            
+        }
+
         public Anunciante(Identidade id, Nome nome, Endereco endereco, Email email,
-            AgendaTelefonica agendaTelefonica): base(id)
+            AgendaTelefonica agendaTelefonica) : base(id)
         {
             if (nome == null)
                 throw new InvalidOperationException("O Nome do proprietário é obrigatório");
@@ -30,9 +35,10 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioNH.GerenciamentoDeAnunciante
             Email = email;
             Endereco = endereco;
             AgendaTelefonica = agendaTelefonica;
+            
         }
 
-        public void AlterarEmail(Email novoEmail)
+        public virtual void AlterarEmail(Email novoEmail)
         {
             Email = novoEmail;
         }

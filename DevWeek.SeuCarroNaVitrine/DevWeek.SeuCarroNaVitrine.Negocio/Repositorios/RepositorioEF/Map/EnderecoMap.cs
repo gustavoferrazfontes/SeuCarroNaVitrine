@@ -1,4 +1,5 @@
-﻿using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado;
+﻿
+using DevWeek.SeuCarroNaVitrine.Negocio.DominioEF.GerenciamentoDeAnunciante;
 using System.Data.Entity.ModelConfiguration;
 
 namespace DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioEF.Map
@@ -10,17 +11,31 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioEF.Map
 
             Property(endereco => endereco.Cidade)
                 .HasColumnType("varchar")
-                .HasMaxLength(100);
+                .HasColumnName("Cidade")
+                .HasMaxLength(100)
+                .IsRequired();
 
             Property(endereco => endereco.Bairro)
+                .HasColumnName("Bairro")
                 .HasColumnType("varchar")
-                .HasMaxLength(100);
+                .HasMaxLength(100)
+                .IsRequired();
 
-            Property(endereco => endereco.Cep);
+            Property(endereco => endereco.Cep)
+                .HasColumnName("Cep")
+                .IsRequired();
 
             Property(endereco => endereco.Logradouro)
+                .HasColumnName("Logradouro")
                 .HasColumnType("varchar")
-                .HasMaxLength(100);
+                .HasMaxLength(100)
+                .IsRequired();
+
+            Property(endereco => endereco.Estado)
+             .HasColumnName("Estado")
+             .HasColumnType("varchar")
+             .HasMaxLength(100)
+             .IsRequired();
 
         }
     }

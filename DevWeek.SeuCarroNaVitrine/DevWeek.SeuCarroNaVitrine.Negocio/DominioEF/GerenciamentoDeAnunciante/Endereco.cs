@@ -1,20 +1,16 @@
 ﻿using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
 using System;
 
-namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
+namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioEF.GerenciamentoDeAnunciante
 {
     public sealed class Endereco : ObjetoDeValor<Endereco>
     {
-        public string Logradouro { get; }
-        public string Bairro { get; }
-        public string Cidade { get; }
-        public string Estado { get; }
-        public int Cep { get; }
+        public string Logradouro { get; private set; }
+        public string Bairro { get; private set;}
+        public string Cidade { get; private set;}
+        public string Estado { get; private set; }
+        public int Cep { get; private set; }
 
-        private Endereco()
-        {
-                
-        }
         
         private Endereco(string logradouro, string bairro, string cidade, string estado, int cep)
         {

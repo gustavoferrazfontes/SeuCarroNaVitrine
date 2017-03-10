@@ -7,12 +7,13 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioEF.Map
     {
         public AnuncianteMap()
         {
-            HasKey(anunciante => anunciante.Id);       
+            HasKey(Anunciante.IdentidadeExpression);
+
+            Property(Anunciante.IdentidadeExpression)
+                .HasColumnName("AnuncianteId");
 
             ToTable("Anunciante");      
                 
-
-
         }
     }
 }

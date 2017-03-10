@@ -1,18 +1,14 @@
 ﻿using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
 using System;
 
-namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
+namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioEF.GerenciamentoDeAnunciante
 {
     public sealed class AgendaTelefonica : ObjetoDeValor<AgendaTelefonica>
     {
-        public Telefone TelefonePrincipal { get; }
-        public Telefone TelefoneComercial { get; }
-        public Telefone Celular { get; }
+        public Telefone TelefonePrincipal { get; private set; }
+        public Telefone TelefoneComercial { get; private set; }
+        public Telefone TelefoneCelular { get; private set; }
 
-        private AgendaTelefonica()
-        {
-
-        }
 
         private AgendaTelefonica(Telefone telefonePrincipal,
             Telefone telefoneComercial, Telefone celular)
@@ -28,7 +24,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
 
             TelefonePrincipal = telefonePrincipal;
             TelefoneComercial = telefoneComercial;
-            Celular = celular;
+            TelefoneCelular = celular;
         }
 
         public static AgendaTelefonica Nova(Telefone telefonePrincipal,
@@ -41,7 +37,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
         {
             return TelefonePrincipal == other.TelefonePrincipal
                     && TelefoneComercial == other.TelefoneComercial
-                    && Celular == other.Celular;
+                    && TelefoneCelular == other.TelefoneCelular;
         }
 
         protected override int GetHashCodeCore()
@@ -50,7 +46,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
             {
                 int hashCode = TelefonePrincipal.GetHashCode();
                 hashCode = (hashCode * 397) ^ TelefoneComercial.GetHashCode();
-                hashCode = (hashCode * 397) ^ Celular.GetHashCode();
+                hashCode = (hashCode * 397) ^ TelefoneCelular.GetHashCode();
 
                 return hashCode;
             }

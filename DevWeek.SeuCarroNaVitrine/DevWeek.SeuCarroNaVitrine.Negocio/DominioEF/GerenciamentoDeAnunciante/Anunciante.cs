@@ -1,11 +1,13 @@
 ﻿using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
-using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado;
 using System;
+using System.Linq.Expressions;
 
 namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioEF.GerenciamentoDeAnunciante
 {
     public class Anunciante : Agregado
     {
+        public static Expression<Func<Anunciante, Guid>>  IdentidadeExpression = f => f.IdInterno;
+        private Guid IdInterno { get { return Id.Id; } set { } }
         public Nome Nome { get; }
         public Endereco Endereco { get; private set; }
         public Email Email { get; private set; }

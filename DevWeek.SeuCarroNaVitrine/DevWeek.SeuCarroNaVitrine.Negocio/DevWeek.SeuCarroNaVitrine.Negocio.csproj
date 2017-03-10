@@ -32,11 +32,9 @@
   <ItemGroup>
     <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
-      <Private>True</Private>
     </Reference>
-    <Reference Include="DapperExtensions, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DapperExtensions.1.5.0\lib\net45\DapperExtensions.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Dapper.Extension, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.Extension.1.0.0.1\lib\net45\Dapper.Extension.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -45,6 +43,15 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentNHibernate, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.1.1.4000\lib\net40\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -58,7 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DominioEF\GerenciamentoDeAnunciante\AgendaTelefonica.cs" />
     <Compile Include="DominioEF\GerenciamentoDeAnunciante\Anunciante.cs" />
+    <Compile Include="DominioEF\GerenciamentoDeAnunciante\Email.cs" />
+    <Compile Include="DominioEF\GerenciamentoDeAnunciante\Endereco.cs" />
+    <Compile Include="DominioEF\GerenciamentoDeAnunciante\Nome.cs" />
+    <Compile Include="DominioEF\GerenciamentoDeAnunciante\Telefone.cs" />
     <Compile Include="DominioEF\GerenciamentoDeAnuncio\Anuncio.cs" />
     <Compile Include="DominioEF\GerenciamentoDeAnuncio\Proposta.cs" />
     <Compile Include="DominioEF\GerenciamentoDeAnuncio\Veiculo.cs" />
@@ -94,10 +106,15 @@
     <Compile Include="Repositorios\RepositorioDapper\AnuncioRepositorioSQL.cs" />
     <Compile Include="Repositorios\RepositorioEF\AnuncianteRepositorio.cs" />
     <Compile Include="Repositorios\RepositorioEF\AnuncioRepositorio.cs" />
-    <Compile Include="Repositorios\RepositorioEF\Map\AgendaTelefonicaMap.cs" />
+    <Compile Include="Repositorios\RepositorioEF\Map\EmailMap.cs" />
+    <Compile Include="Repositorios\RepositorioEF\Map\TelefoneMap.cs" />
     <Compile Include="Repositorios\RepositorioEF\Map\AnuncianteMap.cs" />
     <Compile Include="Repositorios\RepositorioEF\Map\EnderecoMap.cs" />
     <Compile Include="Repositorios\RepositorioEF\Map\NomeMap.cs" />
+    <Compile Include="Repositorios\RepositorioEF\MeuCarroNaVitrineContext.cs" />
+    <Compile Include="Repositorios\RepositorioNH\AnuncianteRepositorio.cs" />
+    <Compile Include="Repositorios\RepositorioNH\Map\AnuncianteMap.cs" />
+    <Compile Include="Repositorios\RepositorioNH\RepositorioBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

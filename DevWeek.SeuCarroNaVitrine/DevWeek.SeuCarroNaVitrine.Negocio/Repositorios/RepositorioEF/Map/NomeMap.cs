@@ -1,4 +1,4 @@
-﻿using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado;
+﻿using DevWeek.SeuCarroNaVitrine.Negocio.DominioEF.GerenciamentoDeAnunciante;
 using System.Data.Entity.ModelConfiguration;
 
 namespace DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioEF.Map
@@ -10,11 +10,14 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioEF.Map
             Property(nome => nome.PrimeiroNome)
                 .HasColumnName("Nome")
                 .HasColumnType("varchar")
-                .HasMaxLength(100);
+                .HasMaxLength(100)
+                .IsRequired();
 
             Property(nome => nome.Sobrenome)
+                .HasColumnName("Sobrenome")
                 .HasColumnType("varchar")
-                .HasMaxLength(100);
+                .HasMaxLength(100)
+                .IsRequired();
 
         }
     }

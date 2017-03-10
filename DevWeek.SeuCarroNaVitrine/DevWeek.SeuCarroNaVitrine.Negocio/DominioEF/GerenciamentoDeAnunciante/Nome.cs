@@ -1,17 +1,13 @@
 ﻿using System;
 using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
 
-namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
+namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioEF.GerenciamentoDeAnunciante
 {
     public sealed class Nome : ObjetoDeValor<Nome>
     {
-        public string PrimeiroNome { get; }
-        public string Sobrenome { get; }
+        public string PrimeiroNome { get; private set; }
+        public string Sobrenome { get; private set; }
 
-        private Nome()
-        {
-
-        }
         
         private Nome(string primeiroNome, string sobreNome)
         {

@@ -2,10 +2,11 @@
 
 namespace DevWeek.SeuCarroNaVitrine.Negocio.Comum
 {
-    public abstract class Entidade
+    public class Entidade
     {
-        public Identidade Id { get; }
-        
+        public virtual Identidade Id { get; protected set; }
+
+
         public Entidade(Identidade id)
         {
             Id = id;
@@ -35,7 +36,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.Comum
             return Id.Id == entidadeComparacao.Id.Id;
         }
 
-        public bool Transitorio()
+        public virtual bool Transitorio()
         {
             return Id.Id == default(Guid);
         }
