@@ -2,7 +2,7 @@
 using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
 using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado.Enums;
 
-namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
+namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioNH
 {
     public sealed class DetalheDoVeiculo : ObjetoDeValor<DetalheDoVeiculo>
     {
@@ -16,6 +16,10 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
         public decimal Preco { get; }
 
 
+        private DetalheDoVeiculo()
+        {
+
+        }
 
         private DetalheDoVeiculo(string placa, int kilometragem,
             TipoDoCambio cambio, TipoDaCarroceria carroceria, Cor cor,

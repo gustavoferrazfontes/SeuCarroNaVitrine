@@ -1,14 +1,18 @@
 ﻿using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
 using System;
 
-namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
+namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioEF
 {
     public sealed class Telefone : ObjetoDeValor<Telefone>
     {
-        public int DDD { get; }
-        public string Numero { get; }
+        public int DDD { get; private set; }
+        public string Numero { get; private set; }
 
-      
+        private Telefone()
+        {
+
+        }
+        
         private Telefone(int ddd, string numero)
         {
             if (ddd < 11 || ddd > 99)

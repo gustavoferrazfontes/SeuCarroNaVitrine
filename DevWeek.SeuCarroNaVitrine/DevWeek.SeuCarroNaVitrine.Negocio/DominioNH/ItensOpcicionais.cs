@@ -1,7 +1,7 @@
 ﻿using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
 using System.Collections.Generic;
 
-namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
+namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioNH
 {
     public sealed class ItensOpcicionais : ObjetoDeValor<ItensOpcicionais>
     {
@@ -9,7 +9,10 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
 
         public string Itens { get; }
 
-     
+        private ItensOpcicionais()
+        {
+
+        }
 
         private ItensOpcicionais(string itens)
         {

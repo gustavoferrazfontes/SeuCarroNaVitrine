@@ -27,11 +27,15 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.Comum
         public int Value
         {
             get { return _value; }
+            //inclusão de setter privado para o mapeamento do EF
+            private set { }
         }
 
         public string DisplayName
         {
             get { return _displayName; }
+            //inclusão de setter privado para o mapeamento do EF
+            private set { }
         }
 
         public override string ToString()

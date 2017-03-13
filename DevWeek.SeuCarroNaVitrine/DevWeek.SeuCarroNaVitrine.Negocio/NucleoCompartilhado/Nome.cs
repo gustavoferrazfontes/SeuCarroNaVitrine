@@ -8,11 +8,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
         public string PrimeiroNome { get; }
         public string Sobrenome { get; }
 
-        private Nome()
-        {
-
-        }
-        
+       
         private Nome(string primeiroNome, string sobreNome)
         {
             if (string.IsNullOrWhiteSpace(primeiroNome))

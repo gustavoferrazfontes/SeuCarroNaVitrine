@@ -2,20 +2,24 @@
 using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
 using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado.Enums;
 
-namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
+namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioEF
 {
     public sealed class DetalheDoVeiculo : ObjetoDeValor<DetalheDoVeiculo>
     {
-        public string Placa { get; }
-        public int Kilometragem { get; }
-        public int Portas { get; }
-        public TipoDoCambio Cambio { get; }
-        public TipoDaCarroceria Carroceria { get; }
-        public Cor Cor { get; }
-        public TipoDeCombustivel Combustivel { get; }
-        public decimal Preco { get; }
+        public string Placa { get; private set; }
+        public int Kilometragem { get; private set; }
+        public int Portas { get; private set; }
+        public TipoDoCambio Cambio { get; private set; }
+        public TipoDaCarroceria Carroceria { get; private set; }
+        public Cor Cor { get; private set; }
+        public TipoDeCombustivel Combustivel { get; private set; }
+        public decimal Preco { get; private set; }
 
 
+        private DetalheDoVeiculo()
+        {
+
+        }
 
         private DetalheDoVeiculo(string placa, int kilometragem,
             TipoDoCambio cambio, TipoDaCarroceria carroceria, Cor cor,

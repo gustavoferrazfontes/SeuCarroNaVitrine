@@ -2,13 +2,17 @@
 using System;
 using System.Text.RegularExpressions;
 
-namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
+namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioNH
 {
     public sealed class Email : ObjetoDeValor<Email>
     {
         public string Valor { get; }
 
-      
+        private Email()
+        {
+
+        }
+
         private Email(string valor)
         {
             if (!(ValidarEnderecoDeEmail(valor)))

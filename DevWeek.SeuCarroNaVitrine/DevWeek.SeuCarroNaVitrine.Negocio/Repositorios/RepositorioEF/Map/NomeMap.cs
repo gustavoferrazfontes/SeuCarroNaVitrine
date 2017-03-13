@@ -8,16 +8,16 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioEF.Map
         public NomeMap()
         {
             Property(nome => nome.PrimeiroNome)
-                .HasColumnName("Nome")
+                .HasColumnName(nameof(Nome))
                 .HasColumnType("varchar")
-                .HasMaxLength(100)
-                .IsRequired();
+                .HasMaxLength(100);
+
 
             Property(nome => nome.Sobrenome)
                 .HasColumnName("Sobrenome")
                 .HasColumnType("varchar")
-                .HasMaxLength(100)
-                .IsRequired();
+                .HasMaxLength(100);
+
 
         }
     }

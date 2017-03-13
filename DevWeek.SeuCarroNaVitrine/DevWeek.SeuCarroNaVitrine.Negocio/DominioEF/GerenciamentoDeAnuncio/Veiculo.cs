@@ -7,10 +7,16 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioEF.GerenciamentoDeAnuncio
 {
     public class Veiculo : Entidade
     {
-        public DetalheDeFabricacao DetalheDeFabricacao { get; }
-        public ItensOpcicionais Opcionais { get; }
+        
+        public DetalheDeFabricacao DetalheDeFabricacao { get; private set; }
+        public ItensOpcicionais Opcionais { get; private set; }
         public DetalheDoVeiculo Detalhe { get; private set; }
-        public StatusPublicacao StatusDePublicacao { get; } = StatusPublicacao.NaoVistoriado;
+        public StatusPublicacao StatusDePublicacao { get; private set; } = StatusPublicacao.NaoVistoriado;
+        public Anuncio Anuncio { get; private set; }
+        private Veiculo():base(Guid.Empty)
+        {
+
+        }
 
         public Veiculo(Guid id, DetalheDeFabricacao detalheDeFabricacao,
             ItensOpcicionais opcionais, DetalheDoVeiculo detalhe) : base(id)

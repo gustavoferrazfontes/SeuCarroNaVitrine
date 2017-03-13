@@ -1,7 +1,7 @@
 ﻿using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
 using System;
 
-namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
+namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioNH
 {
     public sealed class AgendaTelefonica : ObjetoDeValor<AgendaTelefonica>
     {
@@ -9,7 +9,11 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
         public Telefone TelefoneComercial { get; }
         public Telefone Celular { get; }
 
-     
+        private AgendaTelefonica()
+        {
+
+        }
+
         private AgendaTelefonica(Telefone telefonePrincipal,
             Telefone telefoneComercial, Telefone celular)
         {

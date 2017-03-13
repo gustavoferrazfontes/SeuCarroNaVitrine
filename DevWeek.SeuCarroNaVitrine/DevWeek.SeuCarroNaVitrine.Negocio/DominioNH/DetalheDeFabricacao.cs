@@ -1,7 +1,7 @@
 ﻿using System;
 using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
 
-namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
+namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioNH
 {
     public sealed class DetalheDeFabricacao : ObjetoDeValor<DetalheDeFabricacao>
     {
@@ -10,7 +10,11 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
         public int AnoModelo { get; }
         public int AnoFabricacao { get; }
 
-    
+        private DetalheDeFabricacao()
+        {
+
+        }
+
         private DetalheDeFabricacao(string marca, string modelo,
             int anoFabricacao, int anoModelo)
         {

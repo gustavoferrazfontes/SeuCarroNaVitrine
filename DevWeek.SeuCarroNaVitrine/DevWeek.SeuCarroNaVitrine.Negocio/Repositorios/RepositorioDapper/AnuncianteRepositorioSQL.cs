@@ -9,7 +9,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioDapper
 {
     public sealed class AnuncianteRepositorioSQL
     {
-        public string StringDeConexao => "Server=NB-JRA\\MSSQLEXPRESS;Database=SeuCarroNaVitrine;Trusted_Connection=True;";
+        public string StringDeConexao => @"Server=(LocalDb)\MSSQLLocalDB;Database=SeuCarroNaVitrine;Trusted_Connection=True;";
 
         public AnuncianteRepositorioSQL()
         {

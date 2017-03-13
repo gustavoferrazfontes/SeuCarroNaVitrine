@@ -1,21 +1,29 @@
 ﻿using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioEF.GerenciamentoDeAnuncio
 {
     public class Anuncio : Agregado
     {
-        private List<Proposta> _propostas = new List<Proposta>();
 
-        public Guid AnuncianteId { get; }
-        public DateTime DataDePublicacao { get; }
-        public Periodo Vigencia { get; }
-        public Veiculo Veiculo { get; }
+        public static Expression<Func<Anuncio, ICollection<Proposta>>> PropostaExpression = f => f._propostas;
+        private ICollection<Proposta> _propostas;
 
-        public IReadOnlyList<Proposta> Propostas { get { return _propostas; } }
+        public Guid AnuncianteId { get; private set; }
+        public DateTime DataDePublicacao { get; private set; }
+        public Periodo Vigencia { get; private set; }
+        public Veiculo Veiculo { get; private set; }
 
-        public Anuncio(Guid  id, Guid anuncianteId, Periodo vigencia,
+        public IEnumerable<Proposta> Propostas { get { return _propostas; } }
+
+        private Anuncio()
+        {
+
+        }
+
+        public Anuncio(Guid id, Guid anuncianteId, Periodo vigencia,
             Veiculo veiculo) : base(id)
         {
             if (vigencia == null)
@@ -24,6 +32,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioEF.GerenciamentoDeAnuncio
             if (veiculo == null)
                 throw new InvalidOperationException("O Veículo é obrigatório");
 
+            _propostas = new List<Proposta>();
             AnuncianteId = anuncianteId;
             DataDePublicacao = DateTime.Now;
             Vigencia = vigencia;

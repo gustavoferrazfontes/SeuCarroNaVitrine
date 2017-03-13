@@ -1,16 +1,20 @@
 ﻿using System;
 using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
 
-namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
+namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioEF
 {
     public sealed class DetalheDeFabricacao : ObjetoDeValor<DetalheDeFabricacao>
     {
-        public string Marca { get; }
-        public string Modelo { get; }
-        public int AnoModelo { get; }
-        public int AnoFabricacao { get; }
+        public string Marca { get; private set; }
+        public string Modelo { get; private set; }
+        public int AnoModelo { get; private set; }
+        public int AnoFabricacao { get; private set; }
 
-    
+        private DetalheDeFabricacao()
+        {
+
+        }
+
         private DetalheDeFabricacao(string marca, string modelo,
             int anoFabricacao, int anoModelo)
         {

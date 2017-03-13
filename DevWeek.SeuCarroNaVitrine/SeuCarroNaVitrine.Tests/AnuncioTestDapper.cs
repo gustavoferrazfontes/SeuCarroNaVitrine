@@ -4,23 +4,22 @@ using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado;
 using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado.Enums;
 using DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioDapper;
 using System;
+using Xunit;
 
-namespace DevWeek.SeuCarroNaVitrine.ConsoleApp
+namespace SeuCarroNaVitrine.Tests
 {
-    class Program
+   public class AnuncioTestDapper
     {
-        static void Main(string[] args)
+
+        private readonly AnuncioRepositorioSQL _repositorio;
+        public AnuncioTestDapper()
         {
-            //InserirAnunciante();
-
-            InserirAnuncio();
-
-            Console.ReadKey();
+            _repositorio = new AnuncioRepositorioSQL();
         }
 
-        private static void InserirAnuncio()
+        [Fact]
+        public void InserirAnuncioTest()
         {
-            var repo = new AnuncioRepositorioSQL();
 
             var veiculoId = new Identidade();
             var detalheDeFabricacao = DetalheDeFabricacao.Novo("Ford", "Focus Titanium 2.0", 2015, 2016);
@@ -36,39 +35,15 @@ namespace DevWeek.SeuCarroNaVitrine.ConsoleApp
 
             var anuncio = new Anuncio(anuncioId, anuncianteId, vigencia, veiculo);
 
-            repo.Salvar(anuncio);
+            _repositorio.Salvar(anuncio);
 
-            var anuncianteResult = repo.ObterPorId(anuncioId);
-                        
+            var anuncianteResult = _repositorio.ObterPorId(anuncioId);
+
             Console.WriteLine(anuncianteResult.Veiculo.Detalhe.Cor);
             Console.WriteLine(anuncianteResult.Veiculo.Detalhe.Combustivel);
             Console.WriteLine(anuncianteResult.Veiculo.Detalhe.Cambio);
             Console.WriteLine(anuncianteResult.Veiculo.Opcionais.Itens);
-            
-        }
 
-        private static Guid InserirAnunciante()
-        {
-            var repo = new AnuncianteRepositorioSQL();
-
-
-            var nome = Nome.Novo("José Roberto", "Araújo");
-            var endereco = Endereco.Novo("Rua do Paraíso", "Saúde", "São Paulo", "SP", 04123010);
-            var email = Email.Novo("jroberto.araujo@gmail.com");
-            var contatos = AgendaTelefonica.Nova(Telefone.Novo(11, "123456789"),
-                Telefone.Novo(11, "123456789"), Telefone.Novo(11, "123456789"));
-
-            var id = new Identidade();
-
-            var anunciante = new Anunciante(id, nome, endereco, email, contatos);
-
-            repo.Salvar(anunciante);
-
-            var anuncianteResult = repo.ObterPorId(id);
-
-            Console.WriteLine(anuncianteResult.Nome);
-
-            return id.Id;
         }
     }
 }

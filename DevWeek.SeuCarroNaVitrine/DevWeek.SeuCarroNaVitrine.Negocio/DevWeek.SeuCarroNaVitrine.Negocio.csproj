@@ -66,6 +66,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DominioEF\Agregado.cs" />
+    <Compile Include="DominioEF\DetalheDeFabricacao.cs" />
+    <Compile Include="DominioEF\DetalheDoVeiculo.cs" />
+    <Compile Include="DominioEF\Email.cs" />
+    <Compile Include="DominioEF\Endereco.cs" />
     <Compile Include="DominioEF\Entidade.cs" />
     <Compile Include="DominioEF\GerenciamentoDeAnunciante\AgendaTelefonica.cs" />
     <Compile Include="DominioEF\GerenciamentoDeAnunciante\Anunciante.cs" />
@@ -76,12 +80,25 @@
     <Compile Include="DominioEF\GerenciamentoDeAnuncio\Anuncio.cs" />
     <Compile Include="DominioEF\GerenciamentoDeAnuncio\Proposta.cs" />
     <Compile Include="DominioEF\GerenciamentoDeAnuncio\Veiculo.cs" />
+    <Compile Include="DominioEF\ItensOpcicionais.cs" />
+    <Compile Include="DominioEF\Nome.cs" />
+    <Compile Include="DominioEF\Periodo.cs" />
+    <Compile Include="DominioEF\Telefone.cs" />
+    <Compile Include="DominioNH\AgendaTelefonica.cs" />
     <Compile Include="DominioNH\Agregado.cs" />
+    <Compile Include="DominioNH\DetalheDeFabricacao.cs" />
+    <Compile Include="DominioNH\DetalheDoVeiculo.cs" />
+    <Compile Include="DominioNH\Email.cs" />
+    <Compile Include="DominioNH\Endereco.cs" />
     <Compile Include="DominioNH\Entidade.cs" />
     <Compile Include="DominioNH\GerenciamentoDeAnunciante\Anunciante.cs" />
     <Compile Include="DominioNH\GerenciamentoDeAnuncio\Anuncio.cs" />
     <Compile Include="DominioNH\GerenciamentoDeAnuncio\Proposta.cs" />
     <Compile Include="DominioNH\GerenciamentoDeAnuncio\Veiculo.cs" />
+    <Compile Include="DominioNH\ItensOpcicionais.cs" />
+    <Compile Include="DominioNH\Nome.cs" />
+    <Compile Include="DominioNH\Periodo.cs" />
+    <Compile Include="DominioNH\Telefone.cs" />
     <Compile Include="DominioPuro\GerenciamentoDeAnunciante\Anunciante.cs" />
     <Compile Include="DominioPuro\GerenciamentoDeAnuncio\Anuncio.cs" />
     <Compile Include="DominioPuro\GerenciamentoDeAnuncio\Proposta.cs" />
@@ -110,11 +127,17 @@
     <Compile Include="Repositorios\RepositorioDapper\AnuncioRepositorioSQL.cs" />
     <Compile Include="Repositorios\RepositorioEF\AnuncianteRepositorio.cs" />
     <Compile Include="Repositorios\RepositorioEF\AnuncioRepositorio.cs" />
+    <Compile Include="Repositorios\RepositorioEF\Map\AnuncioMap.cs" />
+    <Compile Include="Repositorios\RepositorioEF\Map\DetalheDaFabricacaoMap.cs" />
+    <Compile Include="Repositorios\RepositorioEF\Map\DetalheDoVeiculoMap.cs" />
     <Compile Include="Repositorios\RepositorioEF\Map\EmailMap.cs" />
+    <Compile Include="Repositorios\RepositorioEF\Map\ItensOpcionaisMap.cs" />
+    <Compile Include="Repositorios\RepositorioEF\Map\PeriodoMap.cs" />
     <Compile Include="Repositorios\RepositorioEF\Map\TelefoneMap.cs" />
     <Compile Include="Repositorios\RepositorioEF\Map\AnuncianteMap.cs" />
     <Compile Include="Repositorios\RepositorioEF\Map\EnderecoMap.cs" />
     <Compile Include="Repositorios\RepositorioEF\Map\NomeMap.cs" />
+    <Compile Include="Repositorios\RepositorioEF\Map\VeiculoMap.cs" />
     <Compile Include="Repositorios\RepositorioEF\MeuCarroNaVitrineContext.cs" />
     <Compile Include="Repositorios\RepositorioNH\AnuncianteRepositorio.cs" />
     <Compile Include="Repositorios\RepositorioNH\AnuncioRepositorio.cs" />

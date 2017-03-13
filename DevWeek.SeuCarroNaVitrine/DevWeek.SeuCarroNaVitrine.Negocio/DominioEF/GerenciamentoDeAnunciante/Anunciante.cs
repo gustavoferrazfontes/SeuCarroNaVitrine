@@ -6,13 +6,27 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioEF.GerenciamentoDeAnunciante
     {
       
 
-        public Nome Nome { get; }
+        public Nome Nome { get; private set; }
         public Endereco Endereco { get; private set; }
         public Email Email { get; private set; }
-        public Telefone TelefonePrincipal { get; private set; }
-        public Telefone TelefoneComercial { get; private set; }
-        public Telefone TelefoneCelular { get; private set; }
 
+        // O Telefone foi incluido no anunciante pois o EF não consegue mapear um VO que encapsula outro VO.
+        // Sendo assim, não consigo ter uma Agenda telefonica que possui telefones. Só seria possivel se minha
+        //Agenda telefonica fosse uma entidade.
+
+        public Telefone TelefonePrincipal { get; private set; }
+
+        //O mapeamento do EF não permite que exista mais de uma propriedade do mesmo tipo.
+        //Ou seja, não é possivel ter dois tipos telefone na mesma entidade.
+
+
+        //public Telefone TelefoneComercial { get; private set; }
+        //public Telefone TelefoneCelular { get; private set; }
+
+        private Anunciante()
+        {
+
+        }
         public Anunciante(Guid id, Nome nome, Endereco endereco, Email email,Telefone celular, Telefone comercial, Telefone principal): base(id)
         {
             if (nome == null)
@@ -36,8 +50,9 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioEF.GerenciamentoDeAnunciante
             Nome = nome;
             Email = email;
             Endereco = endereco;
-            TelefoneCelular = celular;
-            TelefoneComercial = comercial; 
+            //TelefoneCelular = celular;
+            //TelefoneComercial = comercial;
+            TelefonePrincipal = principal;
         }
 
         public void AlterarEmail(Email novoEmail)

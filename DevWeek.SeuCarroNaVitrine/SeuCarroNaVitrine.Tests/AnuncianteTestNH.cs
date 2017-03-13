@@ -1,5 +1,5 @@
-﻿using DevWeek.SeuCarroNaVitrine.Negocio.DominioNH.GerenciamentoDeAnunciante;
-using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado;
+﻿using DevWeek.SeuCarroNaVitrine.Negocio.DominioNH;
+using DevWeek.SeuCarroNaVitrine.Negocio.DominioNH.GerenciamentoDeAnunciante;
 using DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioNH;
 using FluentAssertions;
 using System;

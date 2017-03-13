@@ -10,7 +10,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioDapper
 {
     public sealed class AnuncioRepositorioSQL
     {
-        public string StringDeConexao => "Server=NB-JRA\\MSSQLEXPRESS;Database=SeuCarroNaVitrine;Trusted_Connection=True;";
+        public string StringDeConexao => @"Server=(LocalDb)\MSSQLLocalDB;Database=SeuCarroNaVitrine;Trusted_Connection=True;";
 
         public AnuncioRepositorioSQL()
         {
@@ -32,7 +32,6 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioDapper
                                 WHERE AnuncioId = @id
 
                                 SELECT [VeiculoId]
-                                    ,[AnuncioId]
                                     ,[Marca]
                                     ,[Modelo]
                                     ,[AnoFabricacao]
@@ -48,7 +47,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioDapper
                                     ,[StatusDePublicacao]
                                     ,[Opcionais]
                                 FROM [SeuCarroNaVitrine].[dbo].[Veiculo]
-                                WHERE AnuncioId = @id
+                                WHERE VeiculoId = @id
                             ";
 
                 using (var result = cn.QueryMultiple(select, new { id = id.ToString() }))
@@ -104,12 +103,12 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioDapper
                 var insertVeiculo =
                             @"
                                 INSERT INTO [dbo].[Veiculo]
-                                       ([VeiculoId], [AnuncioId], [Marca], [AnoFabricacao]
+                                       ([VeiculoId], [Marca], [AnoFabricacao]
                                        ,[Modelo],[AnoModelo],[Placa],[Kilometragem]
                                        ,[Portas],[Cambio],[Carroceria],[Cor]
                                        ,[Combustivel],[Preco],[StatusDePublicacao],[Opcionais])
                                  VALUES
-                                       (@veiculoId,@anuncioId,@marca,@anoFabricacao
+                                       (@veiculoId,@marca,@anoFabricacao
                                        ,@modelo,@anoModelo,@placa,@kilometragem
                                        ,@portas,@cambio,@carroceria,@cor
                                        ,@combustivel,@preco,@statusDePublicacao
@@ -126,8 +125,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioDapper
 
                 var parametrosVeiculo = new
                 {
-                    veiculoId = agregado.Veiculo.Id.ToString(),
-                    anuncioId = agregado.Id.ToString(),
+                    veiculoId = agregado.Id.ToString(),
                     marca = agregado.Veiculo.DetalheDeFabricacao.Marca,
                     anoFabricacao = agregado.Veiculo.DetalheDeFabricacao.AnoFabricacao,
                     modelo = agregado.Veiculo.DetalheDeFabricacao.Modelo,

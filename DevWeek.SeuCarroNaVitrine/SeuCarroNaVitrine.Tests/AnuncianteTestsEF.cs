@@ -6,12 +6,12 @@ using Xunit;
 
 namespace SeuCarroNaVitrine.Tests
 {
-    public class AnuncianteTests
+    public class AnuncianteTestsEF
     {
 
         private readonly AnuncianteRepositorio _repositorio;
 
-        public AnuncianteTests()
+        public AnuncianteTestsEF()
         {
             _repositorio = new AnuncianteRepositorio();
         }

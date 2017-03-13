@@ -11,9 +11,8 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioEF.Map
             Property(anunciante => anunciante.Id)
                 .HasColumnName("AnuncianteId");
 
-
            
-            ToTable("Anunciante");      
+            ToTable("Anunciante","dbo");      
                 
         }
     }

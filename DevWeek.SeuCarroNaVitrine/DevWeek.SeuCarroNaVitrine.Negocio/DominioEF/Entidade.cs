@@ -4,7 +4,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioEF
 {
     public  class Entidade
     {
-        public virtual  Guid Id { get; protected set; }
+        public virtual  Guid Id { get; private set; }
 
 
         public Entidade(Guid id)

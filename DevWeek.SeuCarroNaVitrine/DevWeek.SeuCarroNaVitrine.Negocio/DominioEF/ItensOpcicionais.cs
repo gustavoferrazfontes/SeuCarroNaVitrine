@@ -1,15 +1,18 @@
 ﻿using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
 using System.Collections.Generic;
 
-namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
+namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioEF
 {
     public sealed class ItensOpcicionais : ObjetoDeValor<ItensOpcicionais>
     {
         private List<string> _opcionais;
 
-        public string Itens { get; }
+        public string Itens { get; private set; }
 
-     
+        private ItensOpcicionais()
+        {
+
+        }
 
         private ItensOpcicionais(string itens)
         {

@@ -1,13 +1,17 @@
 ﻿using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
 using System;
 
-namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
+namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioNH
 {
     public sealed class Periodo : ObjetoDeValor<Periodo>
     {
         public DateTime Inicial { get; }
         public DateTime Final { get; }
 
+        private Periodo()
+        {
+
+        }
 
         private Periodo(DateTime inicial, DateTime final)
         {

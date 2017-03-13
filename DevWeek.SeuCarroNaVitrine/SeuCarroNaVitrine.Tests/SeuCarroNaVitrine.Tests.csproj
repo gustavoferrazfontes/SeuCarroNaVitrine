@@ -78,8 +78,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnuncianteTestDapper.cs" />
     <Compile Include="AnuncianteTestNH.cs" />
-    <Compile Include="AnuncianteTests.cs" />
+    <Compile Include="AnuncianteTestsEF.cs" />
+    <Compile Include="AnuncioTestDapper.cs" />
+    <Compile Include="AnuncioTestsEF.cs" />
     <Compile Include="AnuncioTestNH.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

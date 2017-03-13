@@ -1,16 +1,16 @@
-﻿using DevWeek.SeuCarroNaVitrine.Negocio.DominioNH;
-using DevWeek.SeuCarroNaVitrine.Negocio.DominioNH.GerenciamentoDeAnuncio;
+﻿using DevWeek.SeuCarroNaVitrine.Negocio.DominioEF;
+using DevWeek.SeuCarroNaVitrine.Negocio.DominioEF.GerenciamentoDeAnuncio;
 using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado.Enums;
-using DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioNH;
+using DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioEF;
 using System;
 using Xunit;
 
 namespace SeuCarroNaVitrine.Tests
 {
-    public class AnuncioTestNH
+    public class AnuncioTestsEF
     {
         private readonly AnuncioRepositorio _repositorio;
-        public AnuncioTestNH()
+        public AnuncioTestsEF()
         {
             _repositorio = new AnuncioRepositorio();
         }
@@ -22,7 +22,6 @@ namespace SeuCarroNaVitrine.Tests
             var idAnunciante = Guid.Parse("B2490150-D8A8-4F5F-89AB-A4EB28622BA4");
             var periodo = Periodo.Novo(DateTime.Now, DateTime.Now.AddDays(10));
 
-            var identidadeDoVeiculo = Guid.NewGuid();
             var detalheDeFabricacao = DetalheDeFabricacao.Novo("Honda", "Civic", 2010, 2010);
             var opcionais = ItensOpcicionais.Novo("trava, vidro,alarme, airbag,kit multimidia,ABS");
 
@@ -38,7 +37,7 @@ namespace SeuCarroNaVitrine.Tests
                     4,
                     30.500m);
 
-            
+
             var veiculo = new Veiculo(identidadeDoAnuncio, detalheDeFabricacao, opcionais, detalheDoVeiculo);
 
             var novoAnuncio = new Anuncio(identidadeDoAnuncio, idAnunciante, periodo, veiculo);
