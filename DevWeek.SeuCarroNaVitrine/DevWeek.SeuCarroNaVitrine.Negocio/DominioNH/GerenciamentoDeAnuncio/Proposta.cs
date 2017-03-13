@@ -1,7 +1,7 @@
 ﻿using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado;
 using System;
 
-namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioNH.GerenciamentoDeAnunciante
+namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioNH.GerenciamentoDeAnuncio
 {
     public class Proposta : Entidade
     {
@@ -12,6 +12,11 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioNH.GerenciamentoDeAnunciante
         public virtual DateTime DataDeEnvio { get; }
         public virtual decimal Valor { get; }
         public virtual string Mensagem { get; }
+
+        protected Proposta():base(Guid.NewGuid())
+        {
+
+        }
 
         public Proposta(Guid id, Guid anuncioId, Nome nome, Email email, Telefone telefone,
             decimal valor, string mensagem) : base(id)

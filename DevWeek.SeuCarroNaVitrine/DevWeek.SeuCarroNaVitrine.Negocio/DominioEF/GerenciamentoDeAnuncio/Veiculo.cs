@@ -12,7 +12,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioEF.GerenciamentoDeAnuncio
         public DetalheDoVeiculo Detalhe { get; private set; }
         public StatusPublicacao StatusDePublicacao { get; } = StatusPublicacao.NaoVistoriado;
 
-        public Veiculo(Identidade id, DetalheDeFabricacao detalheDeFabricacao,
+        public Veiculo(Guid id, DetalheDeFabricacao detalheDeFabricacao,
             ItensOpcicionais opcionais, DetalheDoVeiculo detalhe) : base(id)
         {
             if (detalheDeFabricacao == null)

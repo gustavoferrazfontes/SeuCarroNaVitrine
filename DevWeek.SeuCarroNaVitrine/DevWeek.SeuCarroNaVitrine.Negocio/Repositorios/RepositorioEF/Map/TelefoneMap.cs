@@ -8,34 +8,29 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioEF.Map
     {
         public TelefoneMap()
         {
-            Property(tel => tel.DDD)
-            .HasColumnName("DDDCelular")
-           .IsRequired();
-
-            Property(tel => tel.Numero)
-               .HasColumnName("Celular")
-                .HasMaxLength(9);
 
 
             Property(tel => tel.DDD)
-                .HasColumnName("DDDTelefoneComercial")
-           .IsRequired();
+                 .HasColumnName("DDDTelefoneComercial")
+            .IsRequired();
 
             Property(tel => tel.Numero)
-                .HasColumnName("TelefoneComercial")
-                .HasColumnType("varchar")
-                .HasMaxLength(9)
-                .IsRequired();
+                 .HasColumnName("TelefoneComercial")
+                 .HasColumnType("varchar")
+                 .HasMaxLength(9)
+                 .IsRequired();
 
-            Property(tel => tel.DDD)
-                .HasColumnName("DDDTelefonePrincipal")
-           .IsRequired();
+            // Property(tel => tel.DDD)
+            //     .HasColumnName("DDDTelefonePrincipal")
+            //.IsRequired();
 
-            Property(tel => tel.Numero)
-                .HasColumnName("TelefonePrincipal")
-                .HasColumnType("varchar")
-                .HasMaxLength(9)
-                .IsRequired();
+            // Property(tel => tel.Numero)
+            //     .HasColumnName("TelefonePrincipal")
+            //     .HasColumnType("varchar")
+            //     .HasMaxLength(9)
+            //     .IsRequired();
+
+
         }
     }
 }

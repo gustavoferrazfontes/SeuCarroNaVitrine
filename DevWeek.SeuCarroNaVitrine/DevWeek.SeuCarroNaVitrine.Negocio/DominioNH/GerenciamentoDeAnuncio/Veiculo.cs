@@ -2,14 +2,20 @@
 using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado.Enums;
 using System;
 
-namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioNH.GerenciamentoDeAnunciante
+namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioNH.GerenciamentoDeAnuncio
 {
     public class Veiculo : Entidade
     {
+        
         public virtual DetalheDeFabricacao DetalheDeFabricacao { get; }
         public virtual ItensOpcicionais Opcionais { get; }
-        public virtual DetalheDoVeiculo Detalhe { get; private set; }
+        public virtual DetalheDoVeiculo Detalhe { get; protected set; }
         public virtual StatusPublicacao StatusDePublicacao { get; } = StatusPublicacao.NaoVistoriado;
+
+        protected Veiculo():base(Guid.Empty)
+        {
+
+        }
 
         public Veiculo(Guid id, DetalheDeFabricacao detalheDeFabricacao,
             ItensOpcicionais opcionais, DetalheDoVeiculo detalhe) : base(id)

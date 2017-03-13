@@ -3,28 +3,34 @@ using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado;
 using System;
 using System.Collections.Generic;
 
-namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioNH.GerenciamentoDeAnunciante
+namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioNH.GerenciamentoDeAnuncio
 {
     public class Anuncio : Agregado
     {
-        private List<Proposta> _propostas = new List<Proposta>();
+        private IList<Proposta> _propostas;
 
         public virtual Guid AnuncianteId { get; }
         public virtual DateTime DataDePublicacao { get; }
         public virtual Periodo Vigencia { get; }
         public virtual Veiculo Veiculo { get; }
+        public virtual IEnumerable<Proposta> Propostas { get { return _propostas; } }
 
-        public virtual IReadOnlyList<Proposta> Propostas { get { return _propostas; } }
+        protected Anuncio():base()
+        {
+
+        }
 
         public Anuncio(Guid id, Guid anuncianteId, Periodo vigencia,
             Veiculo veiculo) : base(id)
         {
+
             if (vigencia == null)
                 throw new InvalidOperationException("A Vigência é obrigatória");
 
             if (veiculo == null)
                 throw new InvalidOperationException("O Veículo é obrigatório");
 
+            _propostas = new List<Proposta>(); ;
             AnuncianteId = anuncianteId;
             DataDePublicacao = DateTime.Now;
             Vigencia = vigencia;

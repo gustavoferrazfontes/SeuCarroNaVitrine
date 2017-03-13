@@ -1,5 +1,4 @@
-﻿using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
-using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado;
+﻿using DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado;
 using System;
 using System.Collections.Generic;
 
@@ -9,14 +8,14 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioEF.GerenciamentoDeAnuncio
     {
         private List<Proposta> _propostas = new List<Proposta>();
 
-        public Identidade AnuncianteId { get; }
+        public Guid AnuncianteId { get; }
         public DateTime DataDePublicacao { get; }
         public Periodo Vigencia { get; }
         public Veiculo Veiculo { get; }
 
         public IReadOnlyList<Proposta> Propostas { get { return _propostas; } }
 
-        public Anuncio(Identidade id, Identidade anuncianteId, Periodo vigencia,
+        public Anuncio(Guid  id, Guid anuncianteId, Periodo vigencia,
             Veiculo veiculo) : base(id)
         {
             if (vigencia == null)

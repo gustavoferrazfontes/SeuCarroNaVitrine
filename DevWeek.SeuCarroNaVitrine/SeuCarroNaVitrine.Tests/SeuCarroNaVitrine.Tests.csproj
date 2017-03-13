@@ -80,6 +80,7 @@
   <ItemGroup>
     <Compile Include="AnuncianteTestNH.cs" />
     <Compile Include="AnuncianteTests.cs" />
+    <Compile Include="AnuncioTestNH.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -15,6 +15,12 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
         public TipoDeCombustivel Combustivel { get; }
         public decimal Preco { get; }
 
+
+        private DetalheDoVeiculo()
+        {
+
+        }
+
         private DetalheDoVeiculo(string placa, int kilometragem,
             TipoDoCambio cambio, TipoDaCarroceria carroceria, Cor cor,
             TipoDeCombustivel combustivel, int portas, decimal preco)

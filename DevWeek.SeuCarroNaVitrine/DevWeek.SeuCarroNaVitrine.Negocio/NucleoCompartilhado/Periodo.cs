@@ -8,6 +8,10 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
         public DateTime Inicial { get; }
         public DateTime Final { get; }
 
+        private Periodo()
+        {
+
+        }
 
         private Periodo(DateTime inicial, DateTime final)
         {

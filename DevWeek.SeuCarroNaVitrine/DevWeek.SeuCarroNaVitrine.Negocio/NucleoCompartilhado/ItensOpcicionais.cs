@@ -7,14 +7,20 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
     {
         private List<string> _opcionais;
 
-        public string Itens { get { return UnificarItens(_opcionais); } }
+        public string Itens { get; }
 
+        private ItensOpcicionais()
+        {
+
+        }
 
         private ItensOpcicionais(string itens)
         {
             _opcionais = new List<string>();
 
             _opcionais.AddRange(itens.Split(','));
+
+            Itens = UnificarItens(_opcionais);
         }
 
         public static ItensOpcicionais Novo(string item)

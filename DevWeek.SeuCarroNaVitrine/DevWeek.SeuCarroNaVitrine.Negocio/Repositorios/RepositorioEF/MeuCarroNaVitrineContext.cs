@@ -19,7 +19,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioEF
             modelBuilder.Configurations.Add(new EnderecoMap());
             modelBuilder.Configurations.Add(new EmailMap());
             modelBuilder.Configurations.Add(new TelefoneMap());
-
+ 
 
         }
 

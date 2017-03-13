@@ -10,6 +10,11 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.NucleoCompartilhado
         public int AnoModelo { get; }
         public int AnoFabricacao { get; }
 
+        private DetalheDeFabricacao()
+        {
+
+        }
+
         private DetalheDeFabricacao(string marca, string modelo,
             int anoFabricacao, int anoModelo)
         {

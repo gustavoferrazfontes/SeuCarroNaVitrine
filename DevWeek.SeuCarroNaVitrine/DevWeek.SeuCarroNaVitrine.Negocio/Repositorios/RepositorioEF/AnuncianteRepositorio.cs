@@ -1,5 +1,5 @@
-﻿using DevWeek.SeuCarroNaVitrine.Negocio.Comum;
-using DevWeek.SeuCarroNaVitrine.Negocio.DominioEF.GerenciamentoDeAnunciante;
+﻿using DevWeek.SeuCarroNaVitrine.Negocio.DominioEF.GerenciamentoDeAnunciante;
+using System;
 using System.Linq;
 
 namespace DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioEF
@@ -13,7 +13,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioEF
             _contexto = new MeuCarroNaVitrineContext();
         }
 
-        public Anunciante ObterPor(Identidade Id)
+        public Anunciante ObterPor(Guid Id)
         {
             return _contexto.Anunciante.FirstOrDefault(anunciante => anunciante.Id == Id);
         }

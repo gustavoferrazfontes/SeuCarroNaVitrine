@@ -6,7 +6,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioEF.GerenciamentoDeAnuncio
 {
     public class Proposta : Entidade
     {
-        public Identidade AnuncioId { get; }
+        public Guid AnuncioId { get; }
         public Nome Nome { get; }
         public Email Email { get; }
         public Telefone Telefone { get; }
@@ -14,7 +14,7 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.DominioEF.GerenciamentoDeAnuncio
         public decimal Valor { get; }
         public string Mensagem { get; }
 
-        public Proposta(Identidade id, Identidade anuncioId, Nome nome, Email email, Telefone telefone,
+        public Proposta(Guid id, Guid anuncioId, Nome nome, Email email, Telefone telefone,
             decimal valor, string mensagem) : base(id)
         {
             if (valor == default(decimal))

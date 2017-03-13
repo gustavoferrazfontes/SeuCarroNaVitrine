@@ -30,10 +30,13 @@ namespace DevWeek.SeuCarroNaVitrine.Negocio.Repositorios.RepositorioNH
         {
             return Fluently.Configure()
                .Database(MsSqlConfiguration.MsSql2012.ShowSql()
-                           .ConnectionString(@"Server=(LocalDb)\MSSQLLocalDB; Database=SeuCarroNaVitrine; Integrated Security=SSPI;"))
+                           .ConnectionString(@"Server=.\; Database=SeuCarroNaVitrine; Integrated Security=SSPI;"))
                .Mappings(m =>
                {
                    m.FluentMappings.Add<AnuncianteMap>();
+                   m.FluentMappings.Add<AnuncioMap>();
+                   m.FluentMappings.Add<VeiculoMap>();
+                   m.FluentMappings.Add<PropostaMap>();
 
                })
 

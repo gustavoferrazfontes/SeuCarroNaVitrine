@@ -65,6 +65,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DominioEF\Agregado.cs" />
+    <Compile Include="DominioEF\Entidade.cs" />
     <Compile Include="DominioEF\GerenciamentoDeAnunciante\AgendaTelefonica.cs" />
     <Compile Include="DominioEF\GerenciamentoDeAnunciante\Anunciante.cs" />
     <Compile Include="DominioEF\GerenciamentoDeAnunciante\Email.cs" />
@@ -115,7 +117,11 @@
     <Compile Include="Repositorios\RepositorioEF\Map\NomeMap.cs" />
     <Compile Include="Repositorios\RepositorioEF\MeuCarroNaVitrineContext.cs" />
     <Compile Include="Repositorios\RepositorioNH\AnuncianteRepositorio.cs" />
+    <Compile Include="Repositorios\RepositorioNH\AnuncioRepositorio.cs" />
     <Compile Include="Repositorios\RepositorioNH\Map\AnuncianteMap.cs" />
+    <Compile Include="Repositorios\RepositorioNH\Map\AnuncioMap.cs" />
+    <Compile Include="Repositorios\RepositorioNH\Map\PropostaMap.cs" />
+    <Compile Include="Repositorios\RepositorioNH\Map\VeiculoMap.cs" />
     <Compile Include="Repositorios\RepositorioNH\RepositorioBase.cs" />
   </ItemGroup>
   <ItemGroup>
